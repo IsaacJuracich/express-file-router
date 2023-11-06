@@ -87,11 +87,41 @@ init();
 
 You are able to add route specific middlewares by exporting an array like this:
 
+**Post Example**
+
 ```js
 import { RequestHandler } from "express";
 import UserSession from "@/middleware/session/user";
 
 export const post = [
+  // inside of file
+  async (req, res, next) => {
+    console.log("headers", req.headers);
+
+    return next();
+  },
+  // imported middelware from file
+  UserSession,
+  async (req, res) => {
+    const { userID } = req.params;
+
+    console.log("req.params", req.params);
+
+    return res.status(200).json({
+      message: "Success",
+      userID,
+    });
+  },
+] as RequestHandler[];
+```
+
+**Get Example**
+
+```js
+import { RequestHandler } from "express";
+import UserSession from "@/middleware/session/user";
+
+export const get = [
   // inside of file
   async (req, res, next) => {
     console.log("headers", req.headers);
