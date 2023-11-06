@@ -1,12 +1,12 @@
-# express-file-router
+# **express-file-router**
 
-# Installation
+# **Installation**
 
 ```
 npm install express-file-router
 ```
 
-# How to Use
+# **How to Use**
 
 You can integrate the file router by using it as a middleware like this:
 
@@ -64,4 +64,51 @@ async function init(): Promise<void> {
   server.listen(port, () => console.log(`Server listening on port ${port}`));
 }
 init();
+```
+
+# **Route Setup**
+
+## **Example Structure**
+
+[Structure Setup](https://github.com/IsaacJuracich/express-file-router/tree/main/example/src/routes)
+
+```php
+├── index.ts // main file
+├── routes
+    ├── get.ts // get
+    ├── dynamic // params
+        ├── param
+            ├── [example].ts // single
+            └── [...slug].ts // get all
+    └── post.ts // post
+```
+
+## **Middleware**
+
+You are able to add route specific middlewares by exporting an array like this:
+
+```js
+import { RequestHandler } from "express";
+import UserSession from "@/middleware/session/user";
+
+export const post = [
+  // inside of file
+  async (req, res, next) => {
+    console.log("headers", req.headers);
+
+    return next();
+  },
+  // imported middelware from file
+  UserSession,
+  async (req, res) => {
+    const { userID } = req.params;
+
+    console.log("req.params", req.params);
+
+    return res.status(200).json({
+      message: "Success",
+      userID,
+    });
+  },
+] as RequestHandler[];
 ```
