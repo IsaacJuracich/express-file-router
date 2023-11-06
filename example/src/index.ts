@@ -10,7 +10,6 @@ async function init(): Promise<void> {
   });
 
   const app = express();
-  const router = express.Router();
 
   app.use(cors());
   app.use(
@@ -20,19 +19,19 @@ async function init(): Promise<void> {
   );
   app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
-  app.use("/api", router);
+  app.use(
+    "/api",
+    await FileRouter(
+      {
+        ROUTES_DIR: "/routes",
+        debug: true,
+      },
+      __dirname
+    )
+  );
 
   const server = createServer(app);
   const port = 3080;
-
-  await FileRouter(
-    {
-      ROUTES_DIR: "/routes",
-      debug: true,
-    },
-    router,
-    __dirname
-  );
 
   server.listen(port, () => console.log(`Server listening on port ${port}`));
 }

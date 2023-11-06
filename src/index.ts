@@ -17,11 +17,9 @@ type Config = {
 let dir_name: string;
 const routes = new Map<string, Route>();
 
-export default async function FileRouter(
-  config: Config,
-  router: express.Router,
-  dirname: string
-) {
+export default async function FileRouter(config: Config, dirname: string) {
+  const router = express.Router();
+
   dir_name = dirname;
 
   const start = Date.now();
@@ -69,7 +67,6 @@ export default async function FileRouter(
           const handlerFunction = handlerFixed[i];
 
           if (i === handlerFixed.length - 1) {
-            console.log("handler", typeof handlerFunction);
             return handlerFunction(req, res, next);
           }
           const middlewareFunction = handlerFunction;
@@ -86,6 +83,8 @@ export default async function FileRouter(
       });
     }
   });
+
+  return router;
 }
 
 export async function getHandler(route: Route): Promise<{
