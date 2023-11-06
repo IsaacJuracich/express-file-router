@@ -15,8 +15,8 @@ app.use(
   "/api",
   await FileRouter(
     {
-      ROUTES_DIR: "/routes",
-      debug: true,
+      ROUTES_DIR: "/routes", // directory of your routes
+      debug: true, // simple console.log's
     },
     __dirname
   )
