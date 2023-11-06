@@ -17,7 +17,10 @@ type Config = {
 let dir_name: string;
 const routes = new Map<string, Route>();
 
-export default async function FileRouter(config: Config, dirname: string) {
+export default async function FileRouter(
+  config: Config,
+  dirname: string
+): Promise<express.Router> {
   const router = express.Router();
 
   dir_name = dirname;
