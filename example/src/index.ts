@@ -17,8 +17,7 @@ async function init(): Promise<void> {
       limit: "50mb",
     })
   );
-  app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-
+  app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }))
   app.use(
     "/api",
     await FileRouter(

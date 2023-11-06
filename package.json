@@ -1,5 +1,5 @@
 {
-  "name": "express-file-router",
+  "name": "@ij/express-file-router",
   "version": "1.0.0",
   "description": "An express router that allows you to use the file system to create routes.",
   "main": "index.js",
