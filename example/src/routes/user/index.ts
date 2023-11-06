@@ -2,7 +2,10 @@ import { RequestHandler } from "express";
 
 export const post = [
   async (req, res, next) => {
-    console.log("headers", req.headers);
+    req.params = {
+      ...req.params,
+      userID: "123",
+    };
 
     return next();
   },
