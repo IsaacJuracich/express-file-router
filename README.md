@@ -3,7 +3,7 @@
 # **Installation**
 
 ```
-npm install express-file-router
+npm install express-file-router-2
 ```
 
 # **How to Use**
