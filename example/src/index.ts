@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { createServer } from "http";
-import FileRouter from "../../dist/cjs/index";
+import FileRouter from "express-file-router-2";
 
 async function init(): Promise<void> {
   process.on("uncaughtException", (err) => {
@@ -17,7 +17,7 @@ async function init(): Promise<void> {
       limit: "50mb",
     })
   );
-  app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }))
+  app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
   app.use(
     "/api",
     await FileRouter(

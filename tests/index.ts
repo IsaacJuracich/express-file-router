@@ -36,15 +36,12 @@ describe("File Router", () => {
   });
 
   it("Example Post Dynamic Slug", async () => {
-    const res = await fetch(
-      "http://localhost:3065/api/example/dynamic/slug/testing/slug",
-      {
-        method: "POST",
-        headers: {
-          "X-TOKEN": USER_TOKEN,
-        },
-      }
-    );
+    const res = await fetch(BASE_URL + "/dynamic/slug/testing/slug", {
+      method: "POST",
+      headers: {
+        "X-TOKEN": USER_TOKEN,
+      },
+    });
 
     const body = await res.json();
 
@@ -53,15 +50,12 @@ describe("File Router", () => {
   });
 
   it("Example Post Dynamic Param", async () => {
-    const res = await fetch(
-      "http://localhost:3065/api/example/dynamic/param/testing",
-      {
-        method: "POST",
-        headers: {
-          "X-TOKEN": USER_TOKEN,
-        },
-      }
-    );
+    const res = await fetch(BASE_URL + "/dynamic/param/testing", {
+      method: "POST",
+      headers: {
+        "X-TOKEN": USER_TOKEN,
+      },
+    });
 
     const body = await res.json();
 

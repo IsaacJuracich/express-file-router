@@ -30,7 +30,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { createServer } from "http";
-import FileRouter from "@ij/express-file-router";
+import FileRouter from "express-file-router-2";
 
 async function init(): Promise<void> {
   process.on("uncaughtException", (err) => {
