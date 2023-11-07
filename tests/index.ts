@@ -12,7 +12,11 @@ describe("File Router", () => {
       method: "POST",
       headers: {
         "X-TOKEN": USER_TOKEN,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        test: "test",
+      }),
     });
 
     const body = (await res.json()) as { message: string };

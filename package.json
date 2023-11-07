@@ -1,6 +1,6 @@
 {
   "name": "express-file-router-2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An express router that allows you to use the file system to create routes.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,16 @@
     "test": "node --loader ts-node/esm ./node_modules/mocha/bin/mocha --extension ts tests/index.ts",
     "build": "tsc && tsc --module commonjs --outDir dist/cjs"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "router",
+    "file",
+    "filesystem",
+    "fs",
+    "route",
+    "routes",
+    "typescript"
+  ],
   "author": "Isaac Juracich",
   "license": "ISC",
   "devDependencies": {
