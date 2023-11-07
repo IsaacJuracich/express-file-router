@@ -80,7 +80,8 @@ init();
         ├── param
             ├── [example].ts // single
             └── [...slug].ts // get all
-    └── post.ts // post
+    └── user
+        ├── index.ts // user
 ```
 
 ## **Middleware**
