@@ -82,6 +82,7 @@ init();
             └── [...slug].ts // get all
     └── user
         ├── index.ts // user
+    └── post.ts
 ```
 
 ## **Middleware**
